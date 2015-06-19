@@ -12,18 +12,22 @@ module.exports = function (grunt)
 			},
 			deps: {
 				src: [
-					'bower_components/modernizr/modernizr.js',
 					'bower_components/jquery/dist/jquery.js',
 					'bower_components/bootstrap/dist/js/bootstrap.js',
-					'bower_components/angularjs/angular.min.js',
+					'bower_components/angularjs/angular.min.js'
 				],
 				dest: 'src/<%= pkg.name %>-deps.js'
 			},
 			css: {
-				src: ['bower_components/bootstrap/dist/css/bootstrap.min.css',
-						'src/resources/css/styles.css'
+				src: [
+                    'bower_components/bootstrap/dist/css/bootstrap.min.css',
+                    'src/resources/css/styles.css',
+                    'app/components/**/*.css'
 				],
-				dest: 'src/resources/css/<%= pkg.name %>.css'
+				dest: [
+                    'src/resources/css/<%= pkg.name %>.css',
+                    'app/components/**/<%= pkg.name %>.css'
+                ]
 			},
 			move: {
 				src: ['bower_components/angularjs/angular.min.js.map'],
@@ -34,7 +38,8 @@ module.exports = function (grunt)
 		sass: {
 			dev: {
 				files: {
-					'src/resources/css/styles.css': 'src/resources/css/styles.scss'
+					'src/resources/css/styles.css': 'src/resources/css/styles.scss',
+                    'app/components/**/*.css': 'app/components/**/*.scss'
 				}
 			}
 		},
