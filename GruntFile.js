@@ -35,18 +35,18 @@ module.exports = function (grunt)
         sass: {
             dev: {
                 files: {
-                    'src/resources/css/styles.css': 'src/resources/css/styles.scss'
+                    'styles/css/styles.css': 'styles/*.scss'
                 }
             }
         },
 
         watch: {
             scripts: {
-                files: ['src/resources/js/**/*.js'],
+                files: ['app/**/*.js'],
                 tasks: ['concat:dist']
             },
             styles: {
-                files: ['src/resources/css/*.scss'],
+                files: ['styles/*.scss'],
                 tasks: ['sass']
             }
         }
